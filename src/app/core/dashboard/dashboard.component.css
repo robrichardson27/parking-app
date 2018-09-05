@@ -1,0 +1,10 @@
+.week {
+  list-style: none;
+}
+li {
+  display: inline-block;
+}
+.button-row button {
+  margin: 8px;
+  width: 8em;
+}

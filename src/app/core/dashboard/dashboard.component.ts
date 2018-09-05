@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DAYS } from '../../mocks/mock-days';
 
 import { Day } from '../../day';
 
@@ -9,8 +10,7 @@ import { Day } from '../../day';
 })
 export class DashboardComponent implements OnInit {
 
-  week: Day[] = [];
-
+  week = DAYS;
   constructor() { }
 
   ngOnInit() {
