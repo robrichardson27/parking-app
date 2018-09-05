@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DAYS } from '../../mocks/mock-days';
-
-import { Day } from '../../day';
+import { DayService } from '../../services/day.service';
+import { Day } from '../../models/day';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +9,22 @@ import { Day } from '../../day';
 })
 export class DashboardComponent implements OnInit {
 
-  week = DAYS;
-  constructor() { }
+  week: Day[];
+  selectedDay: Day;
+
+  constructor(private dayService: DayService) { }
+
+  getDays(): void {
+    this.dayService.getDays()
+      .subscribe(days => this.week = days);
+  }
+
+  onSelect(day: Day): void {
+    this.selectedDay = day;
+  }
 
   ngOnInit() {
+    this.getDays();
   }
 
 }

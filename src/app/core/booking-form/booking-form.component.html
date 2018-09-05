@@ -1,3 +1,7 @@
-<p>
-  booking-form works!
-</p>
+<div *ngIf="day" class="container">
+  <mat-card>
+    <h2>{{day.date | date: 'fullDate'}}</h2>
+    <div><span>id: </span>{{day.id}}</div>
+    <app-parking-space></app-parking-space>
+  </mat-card>
+</div>

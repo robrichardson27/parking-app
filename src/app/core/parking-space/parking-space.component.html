@@ -1,3 +1,8 @@
-<p>
-  parking-space works!
-</p>
+<div class="container">
+  <ul class="spaces">
+    <li *ngFor="let space of spaces">
+      <button mat-flat-button color="primary"
+        (click)="onSelect(space)">{{space.id}} {{space.available}}</button>
+    </li>
+  </ul>
+</div>

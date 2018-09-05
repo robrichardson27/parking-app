@@ -1,0 +1,9 @@
+.spaces {
+  list-style: none;
+}
+li {
+  margin: 8px;
+}
+button {
+  width: 8em;
+}

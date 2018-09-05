@@ -1,4 +1,4 @@
-import { Day } from '../day';
+import { Day } from '../models/day';
 import * as moment from 'moment';
 
 const today = moment();

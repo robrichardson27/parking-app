@@ -3,9 +3,13 @@
     <div class="button-row">
       <ul class="week">
         <li *ngFor="let day of week">
-          <button mat-stroked-button color="primary">{{day.date | date: 'E, dd'}}</button>
+          <button mat-stroked-button color="primary"
+            [class.selected]="day === selectedDay"
+            (click)="onSelect(day)">{{day.date | date: 'E, dd'}}</button>
         </li>
       </ul>
     </div>
   </mat-card>
 </div>
+
+<app-booking-form [day]="selectedDay"></app-booking-form>
