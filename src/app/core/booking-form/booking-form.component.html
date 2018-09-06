@@ -1,7 +1,20 @@
-<div *ngIf="day" class="container">
+<div *ngIf="_day" class="container">
   <mat-card>
-    <h2>{{day.date | date: 'fullDate'}}</h2>
-    <div><span>id: </span>{{day.id}}</div>
-    <app-parking-space></app-parking-space>
+
+    <h2>{{_day.date | date: 'fullDate'}}</h2>
+    <div><span>id: </span>{{_day.id}}</div>
+    <ul>
+      <li *ngFor="let book of _bookings">
+        <p>Booking id: {{book.id}} | dayId: {{book.dayId}} | spaceId: {{book.spaceId}}</p>
+      </li>
+    </ul>
+
+    <div class="container">
+      <ul class="spaces">
+        <li *ngFor="let space of spaces">
+          <button mat-flat-button color="primary">{{space.id}} {{space.available}}</button>
+        </li>
+      </ul>
+    </div>
   </mat-card>
 </div>

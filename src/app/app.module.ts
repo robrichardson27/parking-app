@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // Routing Module
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+// HTTP Module
+import { HttpClientModule }    from '@angular/common/http';
 // Forms Modules
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +21,10 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { HeaderComponent } from './core/header/header.component';
 import { BookingFormComponent } from './core/booking-form/booking-form.component';
 import { ParkingSpaceComponent } from './core/parking-space/parking-space.component';
+// In Memory Web-API
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +32,13 @@ import { ParkingSpaceComponent } from './core/parking-space/parking-space.compon
     DashboardComponent,
     HeaderComponent,
     BookingFormComponent,
-    ParkingSpaceComponent
+    ParkingSpaceComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -38,7 +46,10 @@ import { ParkingSpaceComponent } from './core/parking-space/parking-space.compon
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

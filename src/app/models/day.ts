@@ -1,6 +1,6 @@
-import * as moment from 'moment';
+import * as moment from "moment";
 
 export class Day {
   id: number;
-  date: moment;
+  date: moment.Moment;
 }

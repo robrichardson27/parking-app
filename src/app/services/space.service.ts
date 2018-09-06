@@ -11,7 +11,6 @@ export class SpaceService {
 
   constructor() { }
 
-  // TODO pass date to retrieve spaces available for the selectedDate
   getSpaces(): Observable<Space[]> {
     return of(SPACES);
   }
