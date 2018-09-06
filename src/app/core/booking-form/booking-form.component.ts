@@ -50,7 +50,7 @@ export class BookingFormComponent implements OnInit {
       this.spaces.forEach(space => {
           const array = bookings.filter( b => b.spaceId === space.id);
           if (array[0] !== undefined) {
-            space.available = false;
+            space.available = undefined;
           } else {
             space.available = true;
           }
@@ -63,7 +63,7 @@ export class BookingFormComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log(this._day);
+    // console.log(this._day);
     if (this._day !== undefined) {
       this.getBookings(this._day.id).subscribe(
         bookings => this.updateSpaces(bookings);

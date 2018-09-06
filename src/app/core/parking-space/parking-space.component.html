@@ -1,3 +1,11 @@
-<p>
-
-</p>
+<div class="button-row">
+  <ul class="spaces">
+    <li *ngFor="let space of spaces">
+      <button *ngIf="space.available !== undefined" mat-stroked-button color="primary"
+        [class.selected]="space === selectedSpace">
+        Book
+      </button>
+      <p *ngIf="space.available === undefined">Booked</p>
+    </li>
+  </ul>
+</div>

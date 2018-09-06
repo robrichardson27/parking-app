@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Space } from '../../models/space';
 
 @Component({
   selector: 'app-parking-space',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParkingSpaceComponent implements OnInit {
 
-  constructor() { }
+  @Input() spaces: Space[];
 
+  selectedSpace: Space;
+
+  constructor() { }
+  // TODO: onClick book space
   ngOnInit() {
   }
 
