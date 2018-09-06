@@ -10,17 +10,27 @@ import { MessageService } from '../message.service';
 })
 export class BookingService {
 
-  private bookingsUrl = 'api/bookings';  // URL to web api
+  private _bookingsUrl = 'api/bookings';  // URL to web api
+  private _bookings: Booking[];
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { }
 
-  // TODO pass date to retrieve spaces available for the selectedDate
+  /**
+  * Gets all bookings from API then filters on the day selected.
+  */
   getBookings(dayId: number): Observable<Booking[]> {
-    return this.http.get<Booking[]>(this.bookingsUrl).pipe(
-      tap(_ => this.log(`fetched number of bookings=${_.length}`)),
+    return this.http.get<Booking[]>(this._bookingsUrl).pipe(
+      map(booking => {
+        return booking.filter( b => b.dayId === dayId);
+      }),
+      tap(booking => {
+        booking.forEach(b => {
+          this.log(`Booking fetched for day: ${dayId}=${JSON.stringify(b)}`);
+        });
+      }),
       catchError(this.handleError<Booking[]>(`getBookings`, []))
     );
   }

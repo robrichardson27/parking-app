@@ -13,6 +13,7 @@
       <ul class="spaces">
         <li *ngFor="let space of spaces">
           <button mat-flat-button color="primary">{{space.id}} {{space.available}}</button>
+          <app-parking-space></app-parking-space>
         </li>
       </ul>
     </div>

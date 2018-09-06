@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // Routing Module
 import { AppRoutingModule } from './app-routing.module';
 // HTTP Module
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 // Forms Modules
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
