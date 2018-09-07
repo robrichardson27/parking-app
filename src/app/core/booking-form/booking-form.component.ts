@@ -5,7 +5,8 @@ import { Booking } from '../../models/booking';
 import { SpaceService } from '../../services/space.service';
 import { BookingService } from '../../services/booking.service';
 import { map, filter } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
@@ -38,7 +39,7 @@ export class BookingFormComponent implements OnInit {
   * Makes call to Booking Service to retrive Observable of bookings
   * for the current day.
   */
-  getBookings(dayId: number): Observable<Booking>[] {
+  getBookings(dayId: number): Observable<Booking[]>{
     return this.bookingService.getBookings(dayId);
   }
 
@@ -50,9 +51,9 @@ export class BookingFormComponent implements OnInit {
       this.spaces.forEach(space => {
           const array = bookings.filter( b => b.spaceId === space.id);
           if (array[0] !== undefined) {
-            space.available = undefined;
+            space['available'] = undefined;
           } else {
-            space.available = true;
+            space['available'] = true;
           }
       });
     }
@@ -66,7 +67,7 @@ export class BookingFormComponent implements OnInit {
     // console.log(this._day);
     if (this._day !== undefined) {
       this.getBookings(this._day.id).subscribe(
-        bookings => this.updateSpaces(bookings);
+        bookings => this.updateSpaces(bookings)
       )
     }
   }
