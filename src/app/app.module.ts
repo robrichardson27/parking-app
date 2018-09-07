@@ -21,10 +21,13 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { HeaderComponent } from './core/header/header.component';
 import { BookingFormComponent } from './core/booking-form/booking-form.component';
 import { ParkingSpaceComponent } from './core/parking-space/parking-space.component';
+import { SigninComponent } from './core/signin/signin.component';
+import { SignupComponent } from './core/signup/signup.component';
 // In Memory Web-API
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 import { MessageComponent } from './message/message.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { MessageComponent } from './message/message.component';
     HeaderComponent,
     BookingFormComponent,
     ParkingSpaceComponent,
-    MessageComponent
+    MessageComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +51,10 @@ import { MessageComponent } from './message/message.component';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatButtonToggleModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService
-    )
+    MatButtonToggleModule
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService
+    // )
   ],
   providers: [],
   bootstrap: [AppComponent]

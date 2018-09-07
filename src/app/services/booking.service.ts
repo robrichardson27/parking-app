@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
 })
 export class BookingService {
 
-  private _bookingsUrl = 'api/bookings';  // URL to web api
+  private _bookingsUrl = 'api/booking';  // URL to web api
   private _bookings: Booking[];
 
   constructor(
