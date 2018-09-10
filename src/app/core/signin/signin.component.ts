@@ -20,6 +20,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
+  // TODO: Refactor auth token so that it doesn't use localStorage
   login() {
     this.http.post('/api/signin', this.loginData).subscribe(resp => {
       this.data = resp;

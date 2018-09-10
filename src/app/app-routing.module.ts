@@ -5,6 +5,7 @@ import { SigninComponent } from './core/signin/signin.component';
 import { SignupComponent } from './core/signup/signup.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 
+// TODO: handle routing based on authorization
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent, data: {title: 'Sign In'} },

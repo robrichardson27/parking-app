@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
 })
 export class BookingService {
 
-  private _bookingsUrl = 'api/booking';  // URL to web api
+  private _bookingsUrl = 'api/get_bookings';  // URL to web api
   private _bookings: Booking[];
 
   constructor(
@@ -22,7 +22,10 @@ export class BookingService {
   * Gets all bookings from API then filters on the day selected.
   */
   getBookings(dayId: number): Observable<Booking[]> {
-    return this.http.get<Booking[]>(this._bookingsUrl).pipe(
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': localStorage.getItem('jwtToken') })
+    };
+    return this.http.get<Booking[]>(this._bookingsUrl, httpOptions).pipe(
       map(booking => {
         return booking.filter( b => b.dayId === dayId);
       }),

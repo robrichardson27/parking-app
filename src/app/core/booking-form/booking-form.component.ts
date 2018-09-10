@@ -27,6 +27,8 @@ export class BookingFormComponent implements OnInit {
     private bookingService: BookingService
   ) { }
 
+  //makeBooking():
+
   /**
   * Gets all the car park spaces.
   */
@@ -39,7 +41,7 @@ export class BookingFormComponent implements OnInit {
   * Makes call to Booking Service to retrive Observable of bookings
   * for the current day.
   */
-  getBookings(dayId: number): Observable<Booking[]>{
+  getBookings(dayId: number): Observable<Booking[]> {
     return this.bookingService.getBookings(dayId);
   }
 
@@ -68,7 +70,7 @@ export class BookingFormComponent implements OnInit {
     if (this._day !== undefined) {
       this.getBookings(this._day.id).subscribe(
         bookings => this.updateSpaces(bookings)
-      )
+      );
     }
   }
 

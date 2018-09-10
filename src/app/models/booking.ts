@@ -1,6 +1,6 @@
 export class Booking {
   id: number;
-  userId: number;
+  userId: string;
   spaceId: number;
-  dayId: number
+  dayId: number;
 }
