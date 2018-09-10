@@ -17,4 +17,8 @@ export class ParkingSpaceComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(space: Space): void {
+    this.selectedSpace = space;
+  }
+
 }

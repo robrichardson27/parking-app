@@ -1,8 +1,10 @@
 <div class="button-row">
   <ul class="spaces">
     <li *ngFor="let space of spaces">
-      <button *ngIf="space.available !== undefined" mat-stroked-button color="primary"
-        [class.selected]="space === selectedSpace">
+      <button *ngIf="space.available !== undefined"
+        mat-stroked-button color="primary"
+        [class.selected]="space === selectedSpace"
+        (click)="onClick()">
         Book
       </button>
       <p *ngIf="space.available === undefined">Booked</p>
